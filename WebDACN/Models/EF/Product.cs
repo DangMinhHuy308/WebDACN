@@ -43,6 +43,8 @@ namespace WebDACN.Models.EF
         public bool IsSale { get; set; }
         public bool IsFeature { get; set; }
         public bool IsHot { get; set; }
+        public bool IsNewProduct { get; set; }
+
         public bool IsActive { get; set; }
         public int ProductCategoryId { get; set; }
         public int BrandId { get; set; }

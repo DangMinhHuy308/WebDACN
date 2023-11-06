@@ -22,6 +22,9 @@ namespace WebDACN.Models.EF
         [Required(ErrorMessage = "Tên không được để trống")]
         [StringLength(150, ErrorMessage = "Không được vượt quá 150 ký tự")]
         public string Name { get; set; }
+        [Required]
+        [StringLength(150)]
+        public string Alias { get; set; }
 
         public ICollection<Product> Products { get; set; }
 

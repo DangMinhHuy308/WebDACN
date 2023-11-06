@@ -1,0 +1,91 @@
+﻿
+@{ ViewBag.Title = "Thanh toán"; }
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                    <span>Shopping cart</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+        @*<div class="row">
+                <div class="col-lg-12">
+                    <h6 class="coupon__link">
+                        <span class="icon_tag_alt"></span> <a href="#">Have a coupon?</a> Click
+                        here to enter your code.
+                    </h6>
+                </div>
+            </div>*@
+        @*<form action="#" class="checkout__form">*@
+            @if (ViewBag.CheckCart != null)
+            {
+            <div class="row">
+                <div id="show_success"></div>
+                <div class="col-lg-8">
+                    @Html.Action("Partial_CheckOut", "ShoppingCart")
+                </div>
+                <div class="col-lg-4">
+                    @Html.Action("Partial_Item_ThanhToan", "ShoppingCart")
+                </div>
+            </div> 
+            }
+             else
+              {
+                <div>
+                    Bạn chưa có sản phẩm nào. Vui lòng quay lại trang <a href="/san-pham">sản phẩm</a> để mua hàng
+                </div>
+              }
+        @*</form>*@
+    </div>
+</section>
+<!-- Checkout Section End -->
+@section scripts{
+    <script>
+        function OnFailure(rs) {
+            if (!rs.Success) {
+                $('#show_success').html("Bạn đặt hàng thất bại! Xin vui lòng đặt lại");
+            }
+        }
+        $(document).ready(function () {
+            $('#myForm').validate({
+                rules: {
+                    'CustomerName': {
+                        required: true
+                    },
+                    'Phone': {
+                        required: true
+                    },
+                    'Address': {
+                        required: true
+                    },
+                    'Email': {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    'CustomerName': 'Tên không được để trống',
+                    'Phone': 'Số điện thoại không được để trống',
+                    'Address': 'Địa chỉ không được để trống',
+                    'Email': 'Email không hợp lệ'
+                }
+            });
+        });</script>
+}
+

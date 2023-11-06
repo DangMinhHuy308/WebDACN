@@ -182,11 +182,19 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\SizeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,10 +210,32 @@
     <Compile Include="Migrations\202310151202126_IsNewProduct.Designer.cs">
       <DependentUpon>202310151202126_IsNewProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202310271845304_IconProductCategory.cs" />
+    <Compile Include="Migrations\202310271845304_IconProductCategory.Designer.cs">
+      <DependentUpon>202310271845304_IconProductCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202310272016121_aliasBrand.cs" />
+    <Compile Include="Migrations\202310272016121_aliasBrand.Designer.cs">
+      <DependentUpon>202310272016121_aliasBrand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202310290944041_gianhapsanpham.cs" />
+    <Compile Include="Migrations\202310290944041_gianhapsanpham.Designer.cs">
+      <DependentUpon>202310290944041_gianhapsanpham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202310291003464_sizechange.cs" />
+    <Compile Include="Migrations\202310291003464_sizechange.Designer.cs">
+      <DependentUpon>202310291003464_sizechange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311010521027_deletetablePI.cs" />
+    <Compile Include="Migrations\202311010521027_deletetablePI.Designer.cs">
+      <DependentUpon>202311010521027_deletetablePI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
+    <Compile Include="Common\Common.cs" />
     <Compile Include="Models\Common\Filter.cs" />
+    <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\EF\Brand.cs" />
     <Compile Include="Models\EF\Contact.cs" />
     <Compile Include="Models\EF\Coupon.cs" />
@@ -218,15 +248,116 @@
     <Compile Include="Models\EF\Posts.cs" />
     <Compile Include="Models\EF\Product.cs" />
     <Compile Include="Models\EF\ProductCategory.cs" />
-    <Compile Include="Models\EF\ProductImage.cs" />
     <Compile Include="Models\EF\Size.cs" />
     <Compile Include="Models\EF\ThongKe.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OrderViewModel.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\elegant-icons.css" />
+    <Content Include="Content\assets\css\font-awesome.min.css" />
+    <Content Include="Content\assets\css\jquery-ui.min.css" />
+    <Content Include="Content\assets\css\magnific-popup.css" />
+    <Content Include="Content\assets\css\owl.carousel.min.css" />
+    <Content Include="Content\assets\css\slicknav.min.css" />
+    <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\fonts\ElegantIcons.svg" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\assets\img\banner\banner-1.jpg" />
+    <Content Include="Content\assets\img\banner\banner-2.jpg" />
+    <Content Include="Content\assets\img\banner\banner-3.jpg" />
+    <Content Include="Content\assets\img\blog\blog-1.jpg" />
+    <Content Include="Content\assets\img\blog\blog-10.jpg" />
+    <Content Include="Content\assets\img\blog\blog-2.jpg" />
+    <Content Include="Content\assets\img\blog\blog-3.jpg" />
+    <Content Include="Content\assets\img\blog\blog-4.jpg" />
+    <Content Include="Content\assets\img\blog\blog-5.jpg" />
+    <Content Include="Content\assets\img\blog\blog-6.jpg" />
+    <Content Include="Content\assets\img\blog\blog-7.jpg" />
+    <Content Include="Content\assets\img\blog\blog-8.jpg" />
+    <Content Include="Content\assets\img\blog\blog-9.jpg" />
+    <Content Include="Content\assets\img\blog\details\blog-details.jpg" />
+    <Content Include="Content\assets\img\blog\details\comment-1.jpg" />
+    <Content Include="Content\assets\img\blog\details\comment-2.jpg" />
+    <Content Include="Content\assets\img\blog\details\comment-3.jpg" />
+    <Content Include="Content\assets\img\blog\sidebar\fp-1.jpg" />
+    <Content Include="Content\assets\img\blog\sidebar\fp-2.jpg" />
+    <Content Include="Content\assets\img\blog\sidebar\fp-3.jpg" />
+    <Content Include="Content\assets\img\categories\category-1.jpg" />
+    <Content Include="Content\assets\img\categories\category-2.jpg" />
+    <Content Include="Content\assets\img\categories\category-3.jpg" />
+    <Content Include="Content\assets\img\categories\category-4.jpg" />
+    <Content Include="Content\assets\img\categories\category-5.jpg" />
+    <Content Include="Content\assets\img\discount.jpg" />
+    <Content Include="Content\assets\img\instagram\insta-1.jpg" />
+    <Content Include="Content\assets\img\instagram\insta-2.jpg" />
+    <Content Include="Content\assets\img\instagram\insta-3.jpg" />
+    <Content Include="Content\assets\img\instagram\insta-4.jpg" />
+    <Content Include="Content\assets\img\instagram\insta-5.jpg" />
+    <Content Include="Content\assets\img\instagram\insta-6.jpg" />
+    <Content Include="Content\assets\img\logo.png" />
+    <Content Include="Content\assets\img\payment\payment-1.png" />
+    <Content Include="Content\assets\img\payment\payment-2.png" />
+    <Content Include="Content\assets\img\payment\payment-3.png" />
+    <Content Include="Content\assets\img\payment\payment-4.png" />
+    <Content Include="Content\assets\img\payment\payment-5.png" />
+    <Content Include="Content\assets\img\product\details\product-1.jpg" />
+    <Content Include="Content\assets\img\product\details\product-2.jpg" />
+    <Content Include="Content\assets\img\product\details\product-3.jpg" />
+    <Content Include="Content\assets\img\product\details\product-4.jpg" />
+    <Content Include="Content\assets\img\product\details\thumb-1.jpg" />
+    <Content Include="Content\assets\img\product\details\thumb-2.jpg" />
+    <Content Include="Content\assets\img\product\details\thumb-3.jpg" />
+    <Content Include="Content\assets\img\product\details\thumb-4.jpg" />
+    <Content Include="Content\assets\img\product\product-1.jpg" />
+    <Content Include="Content\assets\img\product\product-2.jpg" />
+    <Content Include="Content\assets\img\product\product-3.jpg" />
+    <Content Include="Content\assets\img\product\product-4.jpg" />
+    <Content Include="Content\assets\img\product\product-5.jpg" />
+    <Content Include="Content\assets\img\product\product-6.jpg" />
+    <Content Include="Content\assets\img\product\product-7.jpg" />
+    <Content Include="Content\assets\img\product\product-8.jpg" />
+    <Content Include="Content\assets\img\product\related\rp-1.jpg" />
+    <Content Include="Content\assets\img\product\related\rp-2.jpg" />
+    <Content Include="Content\assets\img\product\related\rp-3.jpg" />
+    <Content Include="Content\assets\img\product\related\rp-4.jpg" />
+    <Content Include="Content\assets\img\shop-cart\cp-1.jpg" />
+    <Content Include="Content\assets\img\shop-cart\cp-2.jpg" />
+    <Content Include="Content\assets\img\shop-cart\cp-3.jpg" />
+    <Content Include="Content\assets\img\shop-cart\cp-4.jpg" />
+    <Content Include="Content\assets\img\shop\shop-1.jpg" />
+    <Content Include="Content\assets\img\shop\shop-2.jpg" />
+    <Content Include="Content\assets\img\shop\shop-3.jpg" />
+    <Content Include="Content\assets\img\shop\shop-4.jpg" />
+    <Content Include="Content\assets\img\shop\shop-5.jpg" />
+    <Content Include="Content\assets\img\shop\shop-6.jpg" />
+    <Content Include="Content\assets\img\shop\shop-7.jpg" />
+    <Content Include="Content\assets\img\shop\shop-8.jpg" />
+    <Content Include="Content\assets\img\shop\shop-9.jpg" />
+    <Content Include="Content\assets\img\trend\bs-1.jpg" />
+    <Content Include="Content\assets\img\trend\bs-2.jpg" />
+    <Content Include="Content\assets\img\trend\bs-3.jpg" />
+    <Content Include="Content\assets\img\trend\f-1.jpg" />
+    <Content Include="Content\assets\img\trend\f-2.jpg" />
+    <Content Include="Content\assets\img\trend\f-3.jpg" />
+    <Content Include="Content\assets\img\trend\ht-1.jpg" />
+    <Content Include="Content\assets\img\trend\ht-2.jpg" />
+    <Content Include="Content\assets\img\trend\ht-3.jpg" />
+    <Content Include="Content\assets\js\bootstrap.min.js" />
+    <Content Include="Content\assets\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\assets\js\jquery-ui.min.js" />
+    <Content Include="Content\assets\js\jquery.countdown.min.js" />
+    <Content Include="Content\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\assets\js\jquery.nicescroll.min.js" />
+    <Content Include="Content\assets\js\jquery.slicknav.js" />
+    <Content Include="Content\assets\js\main.js" />
+    <Content Include="Content\assets\js\mixitup.min.js" />
+    <Content Include="Content\assets\js\owl.carousel.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -3911,10 +4042,13 @@
     <Content Include="Content\clients\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Content\clients\plugins\uplot\uPlot.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\templates\send1.html" />
+    <Content Include="Content\templates\send2.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\autoNumeric-1.9.45.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -4028,6 +4162,52 @@
     <Content Include="Content\ckeditor\skins\moono\readme.md" />
     <Content Include="Content\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductCategory\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Size\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Size\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Size\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutEmpty.cshtml" />
+    <Content Include="Content\assets\fonts\ElegantIcons.eot" />
+    <Content Include="Content\assets\fonts\ElegantIcons.ttf" />
+    <Content Include="Content\assets\fonts\ElegantIcons.woff" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\assets\fonts\FontAwesome.otf" />
+    <Content Include="Content\assets\sass\style.scss" />
+    <Content Include="Content\assets\sass\_base.scss" />
+    <Content Include="Content\assets\sass\_blog-details.scss" />
+    <Content Include="Content\assets\sass\_blog-sidebar.scss" />
+    <Content Include="Content\assets\sass\_blog.scss" />
+    <Content Include="Content\assets\sass\_breadcrumb.scss" />
+    <Content Include="Content\assets\sass\_categories.scss" />
+    <Content Include="Content\assets\sass\_checkout.scss" />
+    <Content Include="Content\assets\sass\_contact.scss" />
+    <Content Include="Content\assets\sass\_footer.scss" />
+    <Content Include="Content\assets\sass\_header.scss" />
+    <Content Include="Content\assets\sass\_home-page.scss" />
+    <Content Include="Content\assets\sass\_mixins.scss" />
+    <Content Include="Content\assets\sass\_product-details.scss" />
+    <Content Include="Content\assets\sass\_product.scss" />
+    <Content Include="Content\assets\sass\_responsive.scss" />
+    <Content Include="Content\assets\sass\_shop-cart.scss" />
+    <Content Include="Content\assets\sass\_shop.scss" />
+    <Content Include="Content\assets\sass\_variable.scss" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\View.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Partial_SanPham.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4038,6 +4218,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsShopping.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -4073,13 +4254,26 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Menu\MenuTop.cshtml" />
+    <Content Include="Views\Menu\MenuArrivals.cshtml" />
+    <Content Include="Views\Product\Partial_ItemsByCateId.cshtml" />
+    <Content Include="Views\Product\Partial_ProductSales.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Menu\MenuLeft.cshtml" />
+    <Content Include="Views\Product\ProductCategory.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Partial_Item_Cart.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
+    <Content Include="Views\ShoppingCart\Partial_Item_ThanhToan.cshtml" />
+    <Content Include="Views\ShoppingCart\Partial_CheckOut.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOutSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Brand\" />
-    <Folder Include="Areas\Admin\Views\Post\" />
-    <Folder Include="Areas\Admin\Views\Size\" />
+    <Folder Include="Areas\Admin\Views\Role\" />
     <Folder Include="Content\ckfinder\userfiles\" />
     <Folder Include="Content\clients\ckfinder\userfiles\" />
   </ItemGroup>
@@ -4105,6 +4299,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310151202126_IsNewProduct.resx">
       <DependentUpon>202310151202126_IsNewProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310271845304_IconProductCategory.resx">
+      <DependentUpon>202310271845304_IconProductCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310272016121_aliasBrand.resx">
+      <DependentUpon>202310272016121_aliasBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310290944041_gianhapsanpham.resx">
+      <DependentUpon>202310290944041_gianhapsanpham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310291003464_sizechange.resx">
+      <DependentUpon>202310291003464_sizechange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311010521027_deletetablePI.resx">
+      <DependentUpon>202311010521027_deletetablePI.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

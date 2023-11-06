@@ -44,7 +44,7 @@ namespace WebDACN.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 model.CreatedDate = DateTime.Now;
-                model.MenuId = 5;
+                model.MenuId = 10;
                 model.ModifiedDate = DateTime.Now;
                 model.Alias = WebDACN.Models.Common.Filter.FilterChar(model.Title);
                 db.News.Add(model);

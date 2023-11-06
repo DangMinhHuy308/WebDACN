@@ -14,7 +14,6 @@ namespace WebDACN.Models.EF
     {
         public Product()
         {
-            this.ProductImage = new HashSet<ProductImage>();
             this.OrderDetails = new HashSet<OrderDetail>();
             this.Reviews = new HashSet<Review>();
 
@@ -39,6 +38,7 @@ namespace WebDACN.Models.EF
         public string Image { get; set; }
         public decimal Price { get; set; }
         public decimal? PriceSale { get; set; }
+        public decimal OriginalPrice { get; set; }
         public int Quantity { get; set; }
         public bool IsSale { get; set; }
         public bool IsFeature { get; set; }
@@ -48,15 +48,14 @@ namespace WebDACN.Models.EF
         public bool IsActive { get; set; }
         public int ProductCategoryId { get; set; }
         public int BrandId { get; set; }
-        public int SizeId { get; set; }
-
+/*        public int SizeId { get; set; }
+*/
 
 
         public virtual ProductCategory ProductCategory { get; set; }
         public virtual Brand Brand { get; set; }
-        public virtual Size Size { get; set; }
-
-        public virtual ICollection<ProductImage> ProductImage { get; set; }
+/*        public virtual Size Size { get; set; }
+*/
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 

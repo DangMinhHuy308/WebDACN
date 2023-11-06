@@ -21,7 +21,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Quản lý danh mục</h1>
+                <h1>Quản lý tin tức</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -57,7 +57,6 @@
                         <th class="text-center">Hình ảnh</th>
                         <th class="text-center">Tiêu đề</th>
                         <th class="text-center">Ngày tạo</th>
-                        <th class="text-center">Lựa chọn</th>
                         <th class="text-center">Hiển thị</th>
                         <th></th>
                     </tr>
@@ -77,13 +76,13 @@
                                 <td class="text-center"><img src="@item.Image" width="50" /></td>
                                 <td class="text-center">@item.Title</td>
                                 <td class="text-center">@item.CreatedDate.ToString("dd/MM/yyyy")</td>
+                                <td class="text-center">
+                                    <a href='#' data-id="@item.Id" class="btnActive">@Html.Raw(strCheck)</a>
+                                </td>
                                 
                                 <td class="text-center">
                                     <a href="/admin/news/edit/@item.Id" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
                                     <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <a href='#' data-id="@item.Id" class="btnActive">@Html.Raw(strCheck)</a>
                                 </td>
                             </tr>
                             i++;

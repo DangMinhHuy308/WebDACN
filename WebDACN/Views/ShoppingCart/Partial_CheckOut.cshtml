@@ -1,0 +1,56 @@
+﻿@model WebDACN.Models.OrderViewModel
+@using (Ajax.BeginForm("CheckOut", "ShoppingCart", new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "load_data",
+    OnSuccess = "OnSuccessCO",
+    OnFailure = "OnFailure"
+}, new { @Id = "myForm" , @Class = "checkout__form" }))
+{
+    <script>
+        function OnSuccessCO(res) {
+            if (res.Success) {
+                location.href = "/ShoppingCart/CheckOutSuccess";
+            }
+        }
+    </script>
+    @Html.AntiForgeryToken()
+    <h5>Thông tin khách hàng</h5>
+    <div class="row">
+
+        <div class="col-lg-12">
+            <div class="checkout__form__input">
+                <label>Họ tên khách hàng</label>
+                <input type="text" name="CustomerName" required class="form-control" autocomplete="off" />
+            </div>
+            <div class="checkout__form__input">
+                <label>Số điện thoại</label>
+                <input type="text" name="Phone" class="form-control" autocomplete="off" />
+            </div>
+            <div class="checkout__form__input">
+                <label>Email</label>
+                <input type="text" name="Email" class="form-control" autocomplete="off" />
+            </div>
+            <div class="checkout__form__input">
+                <label>Địa chỉ</label>
+                <input type="text" name="Address" class="form-control" autocomplete="off" />
+            </div>
+            <div class="checkout__form__input">
+                <label>Hình thức thanh toán</label>
+                <select class="form-control" name="TypePayment">
+                    <option value="1" selected>Ship COD</option>
+                    <option value="2">Tiền mặt</option>
+                    <option value="3">Chuyển khoản</option>
+                </select>
+            </div>
+            <div class="checkout__form__input">
+                <button type="submit" class="btn btn-block btn-success">Đặt hàng</button>
+            </div>
+        </div>
+
+
+    </div>
+}
+
+
+

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<WebDACN.Models.EF.ProductCategory>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        if (ViewBag.CateId == item.Id)
+        {
+            <div class="card">
+                <div class="card-heading active">
+                    <a href="/danh-muc-san-pham/@item.Alias-@item.Id">@item.Title</a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="card">
+                <div class="card-heading">
+                    <a  href="/danh-muc-san-pham/@item.Alias-@item.Id">@item.Title</a>
+                </div>
+
+            </div>
+        }
+
+    }
+}

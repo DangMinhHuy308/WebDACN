@@ -25,6 +25,8 @@ namespace WebDACN.Models.EF
         [StringLength(150)]
         public string Alias { get; set; }
         public string Description { get; set; }
+        [StringLength(250)]
+        public string Icon { get; set; }
         public ICollection<Product> Products { get; set; }
     }
 }

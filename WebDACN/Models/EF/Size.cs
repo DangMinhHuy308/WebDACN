@@ -14,7 +14,7 @@ namespace WebDACN.Models.EF
     {
         public Size()
         {
-            this.Products = new HashSet<Product>();
+            /*this.Products = new HashSet<Product>();*/
         }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
@@ -24,6 +24,6 @@ namespace WebDACN.Models.EF
         [StringLength(150, ErrorMessage = "Không được vượt quá 150 ký tự")]
         public string Name { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        /*public ICollection<Product> Products { get; set; }*/
     }
 }

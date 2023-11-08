@@ -32,6 +32,8 @@
                         <th>Tên khách hàng</th>
                         <th>Số điện thoại</th>
                         <th>Giá tiền</th>
+                        <th>Phương thức thanh toán</th>
+
                         <th>Trạng thái</th>
                         <th>Ngày tạo</th>
                         <th></th>
@@ -50,11 +52,34 @@
                                 <td>@item.CustomerName</td>
                                 <td>@item.Phone</td>
                                 <td>@WebDACN.Common.Common.FormatNumber(item.TotalAmount, 0)</td>
-                                <td>@(item.TypePayment==1?"Chờ thanh toán":"Đã thanh toán")</td>
+                                <td>@(item.TypePayment==1?"COD":"Chuyển khoản")</td>
+
+                               @* <td>@(item.TypePayment==1?"Chờ thanh toán":"Đã thanh toán")</td>*@
+                                <td>
+                                    @if (item.Status == 1)
+                                    {
+                                        <span>Chưa thanh toán</span>
+                                    }
+                                    @if (item.Status == 2)
+                                    {
+                                        <span>Đã thanh toán</span>
+                                    }
+                                    @if (item.Status == 3)
+                                    {
+                                        <span>Hoàn thành</span>
+                                    }
+                                    @if (item.Status == 4)
+                                    {
+                                        <span>Hủy</span>
+                                    }
+                                </td>
                                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
+
                                 <td>
                                     <a href="/admin/order/view/@item.Id" class="btn btn-sm btn-success">Xem</a>
                                     <a href="#" class="btn btn-sm btn-danger btnCapNhat" data-id="@item.Id">Cập nhật</a>
+                                    <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+
                                 </td>
                             </tr>
                             i++;
@@ -134,6 +159,22 @@
                         }
                     }
                 });
+            });
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xóa bản ghi này không?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/admin/posts/delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        }
+                    });
+                }
             });
         });
     </script>        

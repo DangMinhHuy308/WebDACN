@@ -29,6 +29,7 @@ namespace WebDACN.Models.EF
         public decimal TotalAmount { get; set; }
         public int Quantity { get; set; }
         public int TypePayment { get; set; }
+        public int Status { get; set; }
         public int? CouponId { get; set; }
 
         public virtual Coupon Coupon { get; set; }

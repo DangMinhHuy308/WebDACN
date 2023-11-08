@@ -8,6 +8,7 @@ using WebDACN.Models;
 
 namespace WebDACN.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Quản trị viên")]
     public class OrderController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -52,6 +53,19 @@ namespace WebDACN.Areas.Admin.Controllers
                 return Json(new { message = "Success", Success = true });
             }
             return Json(new { message = "Unsuccess", Success = false });
+        }
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var item = db.Orders.Find(id);
+            if (item != null)
+            {
+                db.Orders.Remove(item);
+                db.SaveChanges();
+                return Json(new { success = true });
+            }
+
+            return Json(new { success = false });
         }
     }
 }

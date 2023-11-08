@@ -95,7 +95,7 @@
                 <a href="/admin/review" class="nav-link">
                     <i class="fa fa-comment nav-icon" aria-hidden="true"></i>
                     <p>
-                        Comment and rate
+                        Bình luận và đánh giá
                     </p>
                 </a>
             </li>
@@ -129,10 +129,10 @@
 </div>
 <!-- /.sidebar -->
 
-@*@if (Request.IsAuthenticated)
+@if (Request.IsAuthenticated)
 {
 <div style="display:none">
     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffForm" }))
     {
 @Html.AntiForgeryToken()}
-</div>}*@
+</div>}

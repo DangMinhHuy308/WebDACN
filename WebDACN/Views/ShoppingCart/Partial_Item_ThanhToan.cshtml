@@ -12,26 +12,32 @@
 
 
 
-<h5>Giỏ hàng của bạn</h5>
-    <div class="checkout__order__product">
-        <ul>
+        <h5>Giỏ hàng của bạn</h5>
+        <div class="checkout__order__product">
+            <ul>
 
-            <li>
-                <span class="top__text">Sản phẩm</span>
-                <span class="top__text__right">Tổng</span>
-            </li>
-            @foreach (var item in Model)
-            {
-                tongtien += item.TotalPrice;
-            <li>@item.ProductName <span>@Common.FormatNumber(item.Price, 0)</span></li>
-            }
-            
-        </ul>
-    </div>
-    <div class="checkout__order__total">
-        <ul>
-            <li>Total <span>@Common.FormatNumber(tongtien, 0)</span></li>
-        </ul>
-    </div>
+                <li>
+                    <span class="top__text">Sản phẩm</span>
+                    <span class="top__text__right">Tổng</span>
+                </li>
+                @foreach (var item in Model)
+                {
+                    tongtien += item.TotalPrice;
+                    <li>@item.ProductName <span>@Common.FormatNumber(item.Price, 0)</span></li>
+                }
+
+            </ul>
+        </div>
+        <div class="checkout__order__total">
+            <ul>
+                <li>Total <span>@Common.FormatNumber(tongtien, 0)</span></li>
+            </ul>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Mã khuyến mãi">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-secondary">Áp dụng</button>
+            </div>
+        </div>
     }
 </div>

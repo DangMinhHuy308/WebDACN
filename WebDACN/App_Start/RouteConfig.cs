@@ -19,6 +19,18 @@ namespace WebDACN
                 namespaces: new[] { "WebDACN.Controllers" }
             );
             routes.MapRoute(
+            name: "vnpay_return",
+            url: "vnpay_return",
+            defaults: new { controller = "ShoppingCart", action = "VnpayReturn", alias = UrlParameter.Optional },
+            namespaces: new[] { "WebDACN.Controllers" }
+            );
+            routes.MapRoute(
+                name: "NewsList",
+                url: "tin-tuc",
+                defaults: new { controller = "News", action = "Index", alias = UrlParameter.Optional },
+                namespaces: new[] { "WebDACN.Controllers" }
+            );
+            routes.MapRoute(
                 name: "CheckOut",
                 url: "thanh-toan",
                 defaults: new { controller = "ShoppingCart", action = "CheckOut", alias = UrlParameter.Optional },

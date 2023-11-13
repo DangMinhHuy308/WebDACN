@@ -31,6 +31,7 @@ namespace WebDACN.Models.EF
         public int TypePayment { get; set; }
         public int Status { get; set; }
         public int? CouponId { get; set; }
+        public string CustomerId { get; set; }
 
         public virtual Coupon Coupon { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

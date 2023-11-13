@@ -189,6 +189,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\SizeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -197,6 +198,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +242,18 @@
     <Compile Include="Migrations\202311080903497_statusorder.Designer.cs">
       <DependentUpon>202311080903497_statusorder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311111324551_customerId.cs" />
+    <Compile Include="Migrations\202311111324551_customerId.Designer.cs">
+      <DependentUpon>202311111324551_customerId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311111346559_wishlist.cs" />
+    <Compile Include="Migrations\202311111346559_wishlist.Designer.cs">
+      <DependentUpon>202311111346559_wishlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311120956403_changedb.cs" />
+    <Compile Include="Migrations\202311120956403_changedb.Designer.cs">
+      <DependentUpon>202311120956403_changedb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -260,6 +274,7 @@
     <Compile Include="Models\EF\ProductCategory.cs" />
     <Compile Include="Models\EF\Size.cs" />
     <Compile Include="Models\EF\ThongKe.cs" />
+    <Compile Include="Models\EF\Wishlist.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
@@ -270,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\btndropdown.css" />
     <Content Include="Content\assets\css\elegant-icons.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
     <Content Include="Content\assets\css\jquery-ui.min.css" />
@@ -6196,6 +6212,7 @@
     <Content Include="Areas\Admin\Views\Posts\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -6260,12 +6277,14 @@
     <Content Include="Views\ShoppingCart\CheckOutSuccess.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\ShoppingCart\VnpayReturn.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\ckfinder\userfiles\" />
     <Folder Include="Content\clients\ckfinder\userfiles\" />
+    <Folder Include="Views\Wishlist\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -6310,6 +6329,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311080903497_statusorder.resx">
       <DependentUpon>202311080903497_statusorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311111324551_customerId.resx">
+      <DependentUpon>202311111324551_customerId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311111346559_wishlist.resx">
+      <DependentUpon>202311111346559_wishlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311120956403_changedb.resx">
+      <DependentUpon>202311120956403_changedb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

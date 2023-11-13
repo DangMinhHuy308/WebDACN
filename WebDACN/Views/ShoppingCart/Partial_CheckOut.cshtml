@@ -16,7 +16,7 @@
         }
         function OnSuccessCO(res) {
             if (res.Success) {
-                if (res.Code == 1) {
+                if (res.Code == 3 || res.Code == 1) {
 
                     location.href = "/ShoppingCart/CheckOutSuccess";
                 } else {

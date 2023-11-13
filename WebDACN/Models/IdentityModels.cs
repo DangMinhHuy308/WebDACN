@@ -29,14 +29,14 @@ namespace WebDACN.Models
         }
         public DbSet<ThongKe> ThongKes { get; set; }
         public DbSet<Menu> Menus { get; set; }
-        public DbSet<Review> Feedbacks { get; set; }
+        public DbSet<Review> Reviews { get; set; }
         public DbSet<Posts> Posts { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Size> Sizes { get; set; }
         public DbSet<Coupon> Coupons { get; set; }
-
+        public DbSet<Wishlist> Wishlists { get; set; }
 
 
         public DbSet<Product> Products { get; set; }

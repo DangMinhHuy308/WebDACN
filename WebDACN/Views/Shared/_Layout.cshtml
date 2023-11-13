@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="~/Content/assets/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/assets/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/assets/css/style.css" type="text/css">
+    <link href="~/Content/assets/css/btndropdown.css" rel="stylesheet" />
     @*    @Styles.Render("~/Content/css")
     *@    @Scripts.Render("~/bundles/modernizr")
     <script src="~/Content/assets/js/jquery-3.3.1.min.js"></script>
@@ -78,8 +79,6 @@
                 <div class="col-lg-3">
                     <div class="header__right">
                         <div class="header__right__auth">
-                            @*<a href="/account/login">Login</a>
-                                <a href="#">Register</a>*@
                             @if (!Request.IsAuthenticated)
                             {
                                 <a href="/account/login">Login</a>
@@ -87,23 +86,28 @@
                             }
                             else
                             {
-                                <a href="#">
-                                    Xin chào: @User.Identity.Name
-                                    <i class="fa fa-angle-down"></i>
-                                </a>
-                                <ul class="account_selection">
-                                    <li><a href="/"><i class="fa fa-sign-in" aria-hidden="true"></i>Profile</a></li>
-                                    <li><a href="javascript:document.getElementById('logOffForm').submit()"><i class="fa fa-user-plus" aria-hidden="true"></i> LogOut</a></li>
-                                </ul>
+                                <div class="dropdown">
+                                    <a href="#" class="dropbtn">
+                                        Xin chào: @User.Identity.Name
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <div class="dropdown-content">
+                                        <a href="/account/profile">Profile</a>
+                                        <a href="javascript:document.getElementById('logOffForm').submit()">LogOut</a>
+                                    </div>
+                                </div>
                             }
                             @if (Request.IsAuthenticated)
                             {
                                 <div style="display:none">
                                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffForm" }))
                                     {
-                                        @Html.AntiForgeryToken()}
-                                </div>}
+                                        @Html.AntiForgeryToken()
+                                    }
+                                </div>
+                            }
                         </div>
+
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li>

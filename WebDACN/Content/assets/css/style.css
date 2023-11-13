@@ -447,13 +447,13 @@ ol {
 	display: none;
 }
 
-.header__right__auth a:after {
+/*.header__right__auth a:after {
 	position: absolute;
 	right: -8px;
 	top: -2px;
-	content: "/";
+	content: "or";
 	font-size: 13px;
-}
+}*/
 
 .header__right__widget {
 	display: inline-block;
@@ -1753,7 +1753,7 @@ ol {
 
 .pro-qty {
 	height: 50px;
-	width: 150px;
+	width: 152px;
 	border: 1px solid #ebebeb;
 	border-radius: 50px;
 	padding: 0 20px;

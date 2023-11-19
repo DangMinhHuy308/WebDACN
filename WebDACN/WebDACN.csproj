@@ -197,6 +197,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ReviewProductController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="Global.asax.cs">
@@ -254,6 +255,14 @@
     <Compile Include="Migrations\202311120956403_changedb.Designer.cs">
       <DependentUpon>202311120956403_changedb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311180808009_usernameReview.cs" />
+    <Compile Include="Migrations\202311180808009_usernameReview.Designer.cs">
+      <DependentUpon>202311180808009_usernameReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311181027165_changereview.cs" />
+    <Compile Include="Migrations\202311181027165_changereview.Designer.cs">
+      <DependentUpon>202311181027165_changereview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -291,6 +300,7 @@
     <Content Include="Content\assets\css\jquery-ui.min.css" />
     <Content Include="Content\assets\css\magnific-popup.css" />
     <Content Include="Content\assets\css\owl.carousel.min.css" />
+    <Content Include="Content\assets\css\reviews.css" />
     <Content Include="Content\assets\css\slicknav.min.css" />
     <Content Include="Content\assets\css\style.css" />
     <Content Include="Content\assets\dist\css\adminlte.css" />
@@ -374,6 +384,7 @@
     <Content Include="Content\assets\img\categories\category-4.jpg" />
     <Content Include="Content\assets\img\categories\category-5.jpg" />
     <Content Include="Content\assets\img\discount.jpg" />
+    <Content Include="Content\assets\img\download.png" />
     <Content Include="Content\assets\img\instagram\insta-1.jpg" />
     <Content Include="Content\assets\img\instagram\insta-2.jpg" />
     <Content Include="Content\assets\img\instagram\insta-3.jpg" />
@@ -6226,6 +6237,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jsShopping.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\rating.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -6278,6 +6290,8 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\ShoppingCart\VnpayReturn.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\ReviewProduct\Show_Review.cshtml" />
+    <Content Include="Views\ReviewProduct\Load_Review.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6338,6 +6352,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311120956403_changedb.resx">
       <DependentUpon>202311120956403_changedb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311180808009_usernameReview.resx">
+      <DependentUpon>202311180808009_usernameReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311181027165_changereview.resx">
+      <DependentUpon>202311181027165_changereview.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

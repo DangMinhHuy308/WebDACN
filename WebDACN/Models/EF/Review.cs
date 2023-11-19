@@ -11,28 +11,21 @@ namespace WebDACN.Models.EF
 
     public class Review 
     {
-        
+
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [ForeignKey("Product")]
         public int ProductId { get; set; }
-
-
-        [Required(ErrorMessage = "Tên không được để trống")]
-        [StringLength(150, ErrorMessage = "Không được vượt quá 150 ký tự")]
-        public string Name { get; set; }
-
-        [Required(ErrorMessage = "Tên không được để trống")]
+        public string UserName { get; set; }
+        public string FullName { get; set; }
         public string Email { get; set; }
+        public string Content { get; set; }
+        public int Rate { get; set; }
+        public DateTime CreatedDate { get; set; }
         public string Avatar { get; set; }
 
-        public int Rate { get; set; }
-
-        [StringLength(4000)]
-        public string Message { get; set; }
-
-        public DateTime CreatedDate { get; set; }
         public virtual Product Product { get; set; }
 
 

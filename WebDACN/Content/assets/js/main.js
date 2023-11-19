@@ -223,6 +223,7 @@ Created: Colorib
 			$('.product__big__img').attr({src: imgurl});
 		}
     });
+
     
     /*-------------------
 		Quantity change
@@ -255,3 +256,4 @@ Created: Colorib
     });
 
 })(jQuery);
+

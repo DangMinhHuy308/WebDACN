@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,6 +12,8 @@ using WebDACN.Models.Payments;
 
 namespace WebDACN.Controllers
 {
+    [Authorize]
+
     public class ShoppingCartController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -51,6 +54,8 @@ namespace WebDACN.Controllers
                 _userManager = value;
             }
         }
+        [AllowAnonymous]
+
         public ActionResult Index()
         {
             ShoppingCart cart = (ShoppingCart)Session["Cart"];
@@ -62,6 +67,8 @@ namespace WebDACN.Controllers
             }
             return View();
         }
+        [AllowAnonymous]
+
         public ActionResult VnpayReturn()
         {
             if (Request.QueryString.Count > 0)
@@ -120,6 +127,7 @@ namespace WebDACN.Controllers
             //var a = UrlPayment(0, "DH3574");
             return View();
         }
+        [AllowAnonymous]
 
         public ActionResult CheckOut()
         {
@@ -130,12 +138,14 @@ namespace WebDACN.Controllers
             }
             return View();
         }
+        [AllowAnonymous]
 
         public ActionResult CheckOutSuccess()
         {
             return View();
         }
-
+        [AllowAnonymous]
+            
         public ActionResult Partial_Item_ThanhToan()
         {
             ShoppingCart cart = (ShoppingCart)Session["Cart"];
@@ -145,6 +155,7 @@ namespace WebDACN.Controllers
             }
             return PartialView();
         }
+        [AllowAnonymous]
 
         public ActionResult Partial_Item_Cart()
         {
@@ -156,6 +167,7 @@ namespace WebDACN.Controllers
             return PartialView();
         }
 
+        [AllowAnonymous]
 
         public ActionResult ShowCount()
         {
@@ -166,13 +178,21 @@ namespace WebDACN.Controllers
             }
             return Json(new { Count = 0 }, JsonRequestBehavior.AllowGet);
         }
-        
+        [AllowAnonymous]
+
         public ActionResult Partial_CheckOut()
         {
+            var user = UserManager.FindByNameAsync(User.Identity.Name).Result;
+            if (user != null)
+            {
+                ViewBag.User = user;
+            }
             return PartialView();
         }
 
         [HttpPost]
+        [AllowAnonymous]
+
         [ValidateAntiForgeryToken]
         public ActionResult CheckOut(OrderViewModel req)
         {
@@ -199,6 +219,8 @@ namespace WebDACN.Controllers
                     order.CreatedDate = DateTime.Now;
                     order.ModifiedDate = DateTime.Now;
                     order.CreatedBy = req.Phone;
+                    if (User.Identity.IsAuthenticated)
+                        order.CustomerId = User.Identity.GetUserId();
                     Random rd = new Random();
                     order.Code = "DH" + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9);
                     db.Orders.Add(order);
@@ -256,6 +278,8 @@ namespace WebDACN.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+
         public ActionResult AddToCart(int id, int quantity)
         {
             var code = new { Success = false, msg = "", code = -1, Count = 0 };
@@ -292,6 +316,8 @@ namespace WebDACN.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+
         public ActionResult Update(int id, int quantity)
         {
             ShoppingCart cart = (ShoppingCart)Session["Cart"];
@@ -304,6 +330,8 @@ namespace WebDACN.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+
         public ActionResult Delete(int id)
         {
             var code = new { Success = false, msg = "", code = -1, Count = 0 };
@@ -322,6 +350,8 @@ namespace WebDACN.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+
         public ActionResult DeleteAll()
         {
             ShoppingCart cart = (ShoppingCart)Session["Cart"];

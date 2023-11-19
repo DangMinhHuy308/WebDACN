@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Chi tiết sản phẩm";
 }
+<link href="~/Content/assets/css/reviews.css" rel="stylesheet" />
 <!-- Breadcrumb Begin -->
 <div class="breadcrumb-option">
     <div class="container">
@@ -28,12 +29,12 @@
                         <a class="pt active" href="/">
                             <img src="@Model.Image" alt="">
                         </a>
-                        
+
                     </div>
                     <div class="product__details__slider__content">
                         <div class="product__details__pic__slider owl-carousel">
                             <img data-hash="product-1" class="product__big__img" src="@Model.Image" alt="">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -52,27 +53,28 @@
                     @if (Model.PriceSale > 0)
                     {
 
-                        <div class="product__details__price">@WebDACN.Common.Common.FormatNumber(Model.PriceSale, 0)
-                    
-                    
-                            <span>
-                                <div class="product__original-price">@WebDACN.Common.Common.FormatNumber(Model.Price, 0)</div>
+                        <div class="product__details__price">
+                            @WebDACN.Common.Common.FormatNumber(Model.PriceSale, 0)
 
 
-                            </span>
+                        <span>
+                            <div class="product__original-price">@WebDACN.Common.Common.FormatNumber(Model.Price, 0)</div>
+
+
+                        </span>
                     </div>
 
-                    }
-                    else
-                    {
-                        <div class="product__details__price">@WebDACN.Common.Common.FormatNumber(Model.Price, 0)</div>}
+                }
+                else
+                {
+                    <div class="product__details__price">@WebDACN.Common.Common.FormatNumber(Model.Price, 0)</div>}
                     <p>
                         @Model.Description
                     </p>
                     <div class="product__details__button">
                         <div class="quantity">
                             <span>Quantity:</span>
-                            <div class="pro-qty" style=" width: 152px;">
+                            <div class="pro-qty">
                                 <input type="text" id="quantity_value" value="1">
                             </div>
                         </div>
@@ -150,7 +152,7 @@
                             <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Specification</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Reviews ( 2 )</a>
+                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Reviews (@ViewBag.CountReview)</a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -159,7 +161,7 @@
                             <p>
                                 @Html.Raw(Model.Detail)
                             </p>
-                            
+
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <h6>Specification</h6>
@@ -179,27 +181,29 @@
                             </p>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
-                            <h6>Reviews ( 2 )</h6>
-                            <p>
-                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed
-                                quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret.
-                                Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam
-                                voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu
-                                consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
-                                consequat massa quis enim.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-                                dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                                nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                                quis, sem.
-                            </p>
+                            <h6>Reviews (@ViewBag.CountReview)</h6>
+                            
+
+
+                            <div class=" reviews_col">
+
+
+                                @Html.Action("Load_Review", "ReviewProduct", new { productId = Model.Id })
+
+                            </div>
+
+                            <div class="add_review_col">
+
+                                @Html.Action("Show_Review", "ReviewProduct", new { productId = Model.Id })
+
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-        
-    </div>
 </section>
 <!-- Product Details Section End -->

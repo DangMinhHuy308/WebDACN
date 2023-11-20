@@ -16,6 +16,7 @@ namespace WebDACN.Models.EF
         {
             this.OrderDetails = new HashSet<OrderDetail>();
             this.Reviews = new HashSet<Review>();
+            this.Wishlists = new HashSet<Wishlist>();
 
         }
         [Key]
@@ -60,6 +61,8 @@ namespace WebDACN.Models.EF
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ICollection<Wishlist> Wishlists { get; set; }
+
 
     }
 }

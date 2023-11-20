@@ -110,20 +110,33 @@
                     {
                         foreach (var item in Model)
                         {
-                            
+                            @*var wishlist = item.Wishlists.FirstOrDefault(x => x.UserName == User.Identity.Name);
+                            var isWishlist = false;
+                            if (wishlist != null)
+                            {
+                                isWishlist = true;
+                            }*@
                             <div class="col-lg-4 col-md-6 @item.ProductCategory.Alias">
                                 <div class="product__item">
                                     <div class="product__item__pic set-bg" data-setbg="@item.Image">
                                         @if (item.PriceSale > 0)
                                         {
-                                            <div class="label" style="background-color: red">Sale</div>
+                                            <div class="label" style="background-color: red; left: 200px;">Sale</div>
 
                                         }
                                         <ul class="product__hover">
                                             <li><a href="@item.Image" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                                            @*@if (isWishlist == true)
+                                              {
+                                              <li data-id="@item.Id"><span class="icon_heart_alt favorite active"></span></li>
+                                            }
+                                                else
+                                                {
+                                                    <li data-id="@item.Id"><span class="icon_heart_alt favorite"></span></li>
+                                                }*@
+                                            <div data-id="@item.Id" class="favorite favorite_left icon_heart_alt"></div>
                                             <li><a href="#" data-id="@item.Id" class="btnAddToCart"><span class="icon_bag_alt"></span></a></li>
-                                        </ul>
+                                       </ul>
                                     </div>
                                     <div class="product__item__text">
                                         <h6><a href="/chi-tiet/@item.Alias-p@(item.Id)">@item.Title</a></h6>

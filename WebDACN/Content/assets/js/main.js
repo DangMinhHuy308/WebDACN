@@ -10,7 +10,6 @@ Created: Colorib
 'use strict';
 
 (function ($) {
-
     /*------------------
         Preloader
     --------------------*/
@@ -254,6 +253,6 @@ Created: Colorib
         $(".size__btn label").removeClass('active');
         $(this).addClass('active');
     });
-
+    
 })(jQuery);
 

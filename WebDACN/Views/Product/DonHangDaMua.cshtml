@@ -1,0 +1,85 @@
+﻿@model IEnumerable<WebDACN.Models.EF.Product>
+
+@{
+    ViewBag.Title = "DonHangDaMua";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*@{
+        ViewBag.Title = "DonHangDaMua";
+    }*@
+
+
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="/"><i class="fa fa-home"></i>Trang chủ</a>
+                    <span>Đơn hàng đã mua</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<section class="shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-9">
+                <div class="row">
+                    <div class="col-12">
+
+                        @if (Model != null && Model.Any())
+                        {
+                            var i = 1;
+                            <h2>Lịch sử đơn hàng</h2>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Mã sản phẩm</th>
+                                        <th>Ảnh</th>
+
+                                        <th>Tên sản phẩm</th>
+                                        <th>Giá tiền</th>
+                                        <th>Số lượng</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@i</td>
+                                            <td>@item.Id</td>
+                                            <td>
+                                                <img src="@item.Image" alt="Ảnh sản phẩm" style="max-width: 100px; max-height: 100px;" />
+                                            </td>
+
+                                            <td>@item.Title</td>
+                                            <td>@WebDACN.Common.Common.FormatNumber(item.Price, 0)  </td>
+                                            <td>@item.Quantity</td>
+
+                                        </tr>
+                                        i++;
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <p>Không có sản phẩm nào để hiển thị.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

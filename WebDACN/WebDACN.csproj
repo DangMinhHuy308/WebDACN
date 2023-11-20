@@ -263,6 +263,34 @@
     <Compile Include="Migrations\202311181027165_changereview.Designer.cs">
       <DependentUpon>202311181027165_changereview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311190656091_wishlistproduct.cs" />
+    <Compile Include="Migrations\202311190656091_wishlistproduct.Designer.cs">
+      <DependentUpon>202311190656091_wishlistproduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311200456250_nameproduct.cs" />
+    <Compile Include="Migrations\202311200456250_nameproduct.Designer.cs">
+      <DependentUpon>202311200456250_nameproduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311200458435_nameproductchange.cs" />
+    <Compile Include="Migrations\202311200458435_nameproductchange.Designer.cs">
+      <DependentUpon>202311200458435_nameproductchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311200501309_nameproductdelete.cs" />
+    <Compile Include="Migrations\202311200501309_nameproductdelete.Designer.cs">
+      <DependentUpon>202311200501309_nameproductdelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311200502292_nameproductadd.cs" />
+    <Compile Include="Migrations\202311200502292_nameproductadd.Designer.cs">
+      <DependentUpon>202311200502292_nameproductadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311201140396_deletewishlist.cs" />
+    <Compile Include="Migrations\202311201140396_deletewishlist.Designer.cs">
+      <DependentUpon>202311201140396_deletewishlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311201142505_changewishlist.cs" />
+    <Compile Include="Migrations\202311201142505_changewishlist.Designer.cs">
+      <DependentUpon>202311201142505_changewishlist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -449,6 +477,7 @@
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\js\mixitup.min.js" />
     <Content Include="Content\assets\js\owl.carousel.min.js" />
+    <Content Include="Content\assets\js\wishlist.js" />
     <Content Include="Content\assets\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="Content\assets\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="Content\assets\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
@@ -6292,13 +6321,15 @@
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\ReviewProduct\Show_Review.cshtml" />
     <Content Include="Views\ReviewProduct\Load_Review.cshtml" />
+    <Content Include="Views\ReviewProduct\LichSuDonHang.cshtml" />
+    <Content Include="Views\Product\DonHangDaMua.cshtml" />
+    <Content Include="Views\Wishlist\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\ckfinder\userfiles\" />
     <Folder Include="Content\clients\ckfinder\userfiles\" />
-    <Folder Include="Views\Wishlist\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -6358,6 +6389,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311181027165_changereview.resx">
       <DependentUpon>202311181027165_changereview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311190656091_wishlistproduct.resx">
+      <DependentUpon>202311190656091_wishlistproduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311200456250_nameproduct.resx">
+      <DependentUpon>202311200456250_nameproduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311200458435_nameproductchange.resx">
+      <DependentUpon>202311200458435_nameproductchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311200501309_nameproductdelete.resx">
+      <DependentUpon>202311200501309_nameproductdelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311200502292_nameproductadd.resx">
+      <DependentUpon>202311200502292_nameproductadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311201140396_deletewishlist.resx">
+      <DependentUpon>202311201140396_deletewishlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311201142505_changewishlist.resx">
+      <DependentUpon>202311201142505_changewishlist.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

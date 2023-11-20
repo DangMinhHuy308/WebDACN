@@ -211,6 +211,7 @@ namespace WebDACN.Controllers
                     cart.Items.ForEach(x => order.OrderDetails.Add(new OrderDetail
                     {
                         ProductId = x.ProductId,
+                        Title = x.ProductName,
                         Quantity = x.Quantity,
                         Price = x.Price
                     }));

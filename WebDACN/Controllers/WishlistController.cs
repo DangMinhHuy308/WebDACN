@@ -9,10 +9,13 @@ using WebDACN.Models.EF;
 
 namespace WebDACN.Controllers
 {
+    [Authorize]
+
     public class WishlistController : Controller
     {
+    private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Wishlist
-       /* public ActionResult Index(int? page)
+        public ActionResult Index(int? page)
         {
             var pageSize = 5;
             if (page == null)
@@ -26,9 +29,9 @@ namespace WebDACN.Controllers
             ViewBag.Page = page;
             return View(items);
         }
-
         [HttpPost]
         [AllowAnonymous]
+
         public ActionResult PostWishlist(int ProductId)
         {
             if (Request.IsAuthenticated == false)
@@ -48,7 +51,6 @@ namespace WebDACN.Controllers
             db.SaveChanges();
             return Json(new { Success = true });
         }
-
         [HttpPost]
         [AllowAnonymous]
         public ActionResult PostDeleteWishlist(int ProductId)
@@ -62,11 +64,22 @@ namespace WebDACN.Controllers
             }
             return Json(new { Success = false, Message = "Bạn xóa sản phẩm yêu thích này không thành công!!!" });
         }
-
-        private ApplicationDbContext db = new ApplicationDbContext();
+        /*[HttpPost]
+        [AllowAnonymous]
+        public ActionResult PostDeleteWishlist(int ProductId)
+        {
+            var checkItem = db.Wishlists.FirstOrDefault(x => x.ProductId == ProductId && x.UserName == User.Identity.Name);
+            if (checkItem != null)
+            {
+                db.Wishlists.Remove(checkItem);
+                db.SaveChanges();
+                return Json(new { Success = true, Message = "Bạn đã xóa sản phẩm yêu thích này!" });
+            }
+            return Json(new { Success = false, Message = "Bạn xóa sản phẩm yêu thích này không thành công!!!" });
+        }*/
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-        }*/
+        }
     }
 }

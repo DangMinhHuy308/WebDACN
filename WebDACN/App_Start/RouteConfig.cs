@@ -60,6 +60,7 @@ namespace WebDACN
                 defaults: new { controller = "Product", action = "Index", alias = UrlParameter.Optional },
                 namespaces: new[] { "WebDACN.Controllers" }
             );
+            
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

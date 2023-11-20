@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,8 +26,6 @@ namespace WebDACN.Controllers
             if (item != null)
             {
                 db.Products.Attach(item);
-                /*item.ViewCount = item.ViewCount + 1;
-                db.Entry(item).Property(x => x.ViewCount).IsModified = true;*/
                 db.SaveChanges();
             }
             var countReview = db.Reviews.Where(x => x.ProductId == id).Count();
@@ -47,6 +47,24 @@ namespace WebDACN.Controllers
             }
             ViewBag.CateId = id;
             return View(items);
+        }
+        public ActionResult DonHangDaMua()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+                var userManager = new UserManager<ApplicationUser>(userStore);
+                var user = userManager.FindByName(User.Identity.Name);
+
+                var products = db.Orders
+                    .Where(x => x.CustomerId == user.Id)
+                    .SelectMany(order => order.OrderDetails.Select(od => od.Product))
+                    .ToList();
+
+                return View(products);
+            }
+
+            return View();
         }
         public ActionResult Partial_ItemsByCateId()
         {

@@ -1,0 +1,102 @@
+﻿@model PagedList.PagedList<WebDACN.Models.EF.Wishlist>
+@using PagedList.Mvc;
+@using PagedList;
+
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="./index.html"><i class="fa fa-home"></i>Trang chủ</a>
+                    <span>Sản phẩm yêu thích</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="shop__sidebar">
+                    <div class="sidebar__categories">
+                        <div class="section-title">
+                            <h4>Categories</h4>
+                        </div>
+                        <div class="categories__accordion">
+                            @Html.Action("MenuLeft", "Menu")
+                        </div>
+                    </div>
+                    <div class="sidebar__filter">
+                        <div class="section-title">
+                            <h4>Shop by price</h4>
+                        </div>
+                        <div class="filter-range-wrap">
+                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                                 data-min="33" data-max="99"></div>
+                            <div class="range-slider">
+                                <div class="price-input">
+                                    <p>Price:</p>
+                                    <input type="text" id="minamount">
+                                    <input type="text" id="maxamount">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">Filter</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9">
+                <div class="row">
+                    @if (Model != null & Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+
+                            <div class="col-lg-4 col-md-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="@item.Product.Image">
+                                        <a href="#" data-id="@item.Id" class="btn btn-danger">Bỏ</a>
+                                        <ul class="product__hover">
+                                            <li><a href="@item.Product.Image" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                            <li><a href="#" data-id="@item.Product.Id" class="btnAddToCart"><span class="icon_bag_alt"></span></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6><a href="/chi-tiet/@item.Product.Alias-p@(item.Product.Id)">@item.Product.Title</a></h6>
+
+                                        @if (item.Product.PriceSale > 0)
+                                        {
+                                            <div class="product__price product__price--sale">
+                                                @WebDACN.Common.Common.FormatNumber(item.Product.PriceSale, 0)
+                                                <span class="product__original-price">
+                                                    @WebDACN.Common.Common.FormatNumber(item.Product.Price, 0)
+                                                </span>
+                                            </div>
+                                            <div style="display:none;" class="in_product_price">@item.Product.PriceSale</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="product__price">
+                                                @WebDACN.Common.Common.FormatNumber(item.Product.Price, 0)
+                                            </div>
+                                            <div style="display:none;" class="in_product_price">@item.Product.Price</div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+
+                    <div class="col-lg-12 text-center">
+                        <div class="pagination__option">
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

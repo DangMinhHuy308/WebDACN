@@ -64,3 +64,14 @@
         height: 100%;
     }
 }
+.favorite.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.icon_heart_alt.active {
+    visibility: visible;
+    opacity: 1;
+    background:#ca1515;
+}

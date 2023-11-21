@@ -24,7 +24,7 @@
         @Html.AntiForgeryToken()
 
         <div>
-            <h1>Add Review</h1>
+            <h1>Người đánh giá</h1>
             @Html.TextBoxFor(x => x.FullName, new { @class = "form_input input_name", @placeholder = "Name*", @id = "review_name" })
             @Html.TextBoxFor(x => x.Email, new { @class = "form_input input_email", @placeholder = "Email*", @id = "review_email" })
             @Html.HiddenFor(x => x.UserName)
@@ -33,7 +33,7 @@
             
         </div>
         <div>
-            <h1>Your Rating:</h1>
+            <h1>Bình chọn:</h1>
             <ul class="user_star_rating">
                 <li ><i class="fa fa-star" aria-hidden="true"></i></li>
                 <li ><i class="fa fa-star" aria-hidden="true"></i></li>

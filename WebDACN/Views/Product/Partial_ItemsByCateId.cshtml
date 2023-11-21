@@ -23,17 +23,15 @@
                     <li><a href="@item.Image" class="image-popup"><span class="arrow_expand"></span></a></li>
                     @if (isWishlist == true)
                     {
-@*                        <div data-id="@item.Id" class="favorite  icon_heart_alt active"></div>
-*@                        <li ><a><span data-id="@item.Id" class="icon_heart_alt favorite active"></span></a></li>
+                        <li><a data-id="@item.Id" class="icon_heart_alt favorite active"></a></li>
                             
                     }
                     else
                     {
-@*                        <div data-id="@item.Id" class="favorite  icon_heart_alt"></div>
-*@                        <!--<li ><span  data-id="@item.Id" class="icon_heart_alt favorite"></span></li>-->
-                    <li ><a><span data-id="@item.Id" class="icon_heart_alt favorite"></span></a></li>
+                        
+                    <li ><a data-id="@item.Id" class="icon_heart_alt favorite"></a></li>
                     }
-                    @*<div data-id="@item.Id" class="favorite favorite_left icon_heart_alt"></div>*@
+                    
                     <li><a href="#" data-id="@item.Id" class="btnAddToCart"><span class="icon_bag_alt"></span></a></li>
                 </ul>
                 </div>

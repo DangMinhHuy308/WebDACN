@@ -17,6 +17,7 @@ namespace WebDACN.Models
         public string Email { get; set; }
         public string CustomerId { get; set; }
 
+        public string CouponCode { get; set; }
         public int TypePayment { get; set; }
         public int TypePaymentVN { get; set; }
 

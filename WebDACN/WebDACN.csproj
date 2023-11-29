@@ -180,6 +180,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CouponController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
@@ -203,93 +204,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202309242302036_CreateDB.cs" />
-    <Compile Include="Migrations\202309242302036_CreateDB.Designer.cs">
-      <DependentUpon>202309242302036_CreateDB.cs</DependentUpon>
+    <Compile Include="Migrations\202311221012073_createDB.cs" />
+    <Compile Include="Migrations\202311221012073_createDB.Designer.cs">
+      <DependentUpon>202311221012073_createDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202309250045010_Coupon.cs" />
-    <Compile Include="Migrations\202309250045010_Coupon.Designer.cs">
-      <DependentUpon>202309250045010_Coupon.cs</DependentUpon>
+    <Compile Include="Migrations\202311270839393_changedate.cs" />
+    <Compile Include="Migrations\202311270839393_changedate.Designer.cs">
+      <DependentUpon>202311270839393_changedate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202310151202126_IsNewProduct.cs" />
-    <Compile Include="Migrations\202310151202126_IsNewProduct.Designer.cs">
-      <DependentUpon>202310151202126_IsNewProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202310271845304_IconProductCategory.cs" />
-    <Compile Include="Migrations\202310271845304_IconProductCategory.Designer.cs">
-      <DependentUpon>202310271845304_IconProductCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202310272016121_aliasBrand.cs" />
-    <Compile Include="Migrations\202310272016121_aliasBrand.Designer.cs">
-      <DependentUpon>202310272016121_aliasBrand.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202310290944041_gianhapsanpham.cs" />
-    <Compile Include="Migrations\202310290944041_gianhapsanpham.Designer.cs">
-      <DependentUpon>202310290944041_gianhapsanpham.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202310291003464_sizechange.cs" />
-    <Compile Include="Migrations\202310291003464_sizechange.Designer.cs">
-      <DependentUpon>202310291003464_sizechange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311010521027_deletetablePI.cs" />
-    <Compile Include="Migrations\202311010521027_deletetablePI.Designer.cs">
-      <DependentUpon>202311010521027_deletetablePI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311080431385_typepaymentvn.cs" />
-    <Compile Include="Migrations\202311080431385_typepaymentvn.Designer.cs">
-      <DependentUpon>202311080431385_typepaymentvn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311080903497_statusorder.cs" />
-    <Compile Include="Migrations\202311080903497_statusorder.Designer.cs">
-      <DependentUpon>202311080903497_statusorder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311111324551_customerId.cs" />
-    <Compile Include="Migrations\202311111324551_customerId.Designer.cs">
-      <DependentUpon>202311111324551_customerId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311111346559_wishlist.cs" />
-    <Compile Include="Migrations\202311111346559_wishlist.Designer.cs">
-      <DependentUpon>202311111346559_wishlist.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311120956403_changedb.cs" />
-    <Compile Include="Migrations\202311120956403_changedb.Designer.cs">
-      <DependentUpon>202311120956403_changedb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311180808009_usernameReview.cs" />
-    <Compile Include="Migrations\202311180808009_usernameReview.Designer.cs">
-      <DependentUpon>202311180808009_usernameReview.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311181027165_changereview.cs" />
-    <Compile Include="Migrations\202311181027165_changereview.Designer.cs">
-      <DependentUpon>202311181027165_changereview.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311190656091_wishlistproduct.cs" />
-    <Compile Include="Migrations\202311190656091_wishlistproduct.Designer.cs">
-      <DependentUpon>202311190656091_wishlistproduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311200456250_nameproduct.cs" />
-    <Compile Include="Migrations\202311200456250_nameproduct.Designer.cs">
-      <DependentUpon>202311200456250_nameproduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311200458435_nameproductchange.cs" />
-    <Compile Include="Migrations\202311200458435_nameproductchange.Designer.cs">
-      <DependentUpon>202311200458435_nameproductchange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311200501309_nameproductdelete.cs" />
-    <Compile Include="Migrations\202311200501309_nameproductdelete.Designer.cs">
-      <DependentUpon>202311200501309_nameproductdelete.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311200502292_nameproductadd.cs" />
-    <Compile Include="Migrations\202311200502292_nameproductadd.Designer.cs">
-      <DependentUpon>202311200502292_nameproductadd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311201140396_deletewishlist.cs" />
-    <Compile Include="Migrations\202311201140396_deletewishlist.Designer.cs">
-      <DependentUpon>202311201140396_deletewishlist.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202311201142505_changewishlist.cs" />
-    <Compile Include="Migrations\202311201142505_changewishlist.Designer.cs">
-      <DependentUpon>202311201142505_changewishlist.cs</DependentUpon>
+    <Compile Include="Migrations\202311280250528_couponcode.cs" />
+    <Compile Include="Migrations\202311280250528_couponcode.Designer.cs">
+      <DependentUpon>202311280250528_couponcode.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -6253,6 +6178,8 @@
     <Content Include="Areas\Admin\Views\Posts\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Coupon\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Coupon\CreateCoupon.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -6345,71 +6272,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202309242302036_CreateDB.resx">
-      <DependentUpon>202309242302036_CreateDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311221012073_createDB.resx">
+      <DependentUpon>202311221012073_createDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202309250045010_Coupon.resx">
-      <DependentUpon>202309250045010_Coupon.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311270839393_changedate.resx">
+      <DependentUpon>202311270839393_changedate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202310151202126_IsNewProduct.resx">
-      <DependentUpon>202310151202126_IsNewProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202310271845304_IconProductCategory.resx">
-      <DependentUpon>202310271845304_IconProductCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202310272016121_aliasBrand.resx">
-      <DependentUpon>202310272016121_aliasBrand.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202310290944041_gianhapsanpham.resx">
-      <DependentUpon>202310290944041_gianhapsanpham.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202310291003464_sizechange.resx">
-      <DependentUpon>202310291003464_sizechange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311010521027_deletetablePI.resx">
-      <DependentUpon>202311010521027_deletetablePI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311080431385_typepaymentvn.resx">
-      <DependentUpon>202311080431385_typepaymentvn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311080903497_statusorder.resx">
-      <DependentUpon>202311080903497_statusorder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311111324551_customerId.resx">
-      <DependentUpon>202311111324551_customerId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311111346559_wishlist.resx">
-      <DependentUpon>202311111346559_wishlist.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311120956403_changedb.resx">
-      <DependentUpon>202311120956403_changedb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311180808009_usernameReview.resx">
-      <DependentUpon>202311180808009_usernameReview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311181027165_changereview.resx">
-      <DependentUpon>202311181027165_changereview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311190656091_wishlistproduct.resx">
-      <DependentUpon>202311190656091_wishlistproduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311200456250_nameproduct.resx">
-      <DependentUpon>202311200456250_nameproduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311200458435_nameproductchange.resx">
-      <DependentUpon>202311200458435_nameproductchange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311200501309_nameproductdelete.resx">
-      <DependentUpon>202311200501309_nameproductdelete.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311200502292_nameproductadd.resx">
-      <DependentUpon>202311200502292_nameproductadd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311201140396_deletewishlist.resx">
-      <DependentUpon>202311201140396_deletewishlist.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311201142505_changewishlist.resx">
-      <DependentUpon>202311201142505_changewishlist.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311280250528_couponcode.resx">
+      <DependentUpon>202311280250528_couponcode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

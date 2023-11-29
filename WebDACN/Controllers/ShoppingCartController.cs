@@ -412,5 +412,52 @@ namespace WebDACN.Controllers
             return urlPayment;
         }
 
+
+        [HttpPost]
+        public ActionResult ApplyCoupon(string couponCode)
+        {
+            // Assume ShoppingCart is the name of your shopping cart model
+            var cart = (ShoppingCart)Session["Cart"];
+
+            if (cart != null && !string.IsNullOrEmpty(couponCode))
+            {
+                var coupon = db.Coupons
+                    .Where(c => c.Code == couponCode && c.IsActive && c.StartDate <= DateTime.Now && c.EndDate >= DateTime.Now)
+                    .FirstOrDefault();
+
+                if (coupon != null)
+                {
+                    // Calculate the total discount amount
+/*                    var totalDiscountAmount = cart.Items.Sum(x => x.Price * x.Quantity) * coupon.Number / 100;
+*/
+                    // Apply the discount to each item in the cart
+                    foreach (var item in cart.Items)
+                    {
+/*                        var discountPerItem = (item.Price * item.Quantity / (cart.Items.Sum(x => x.Price * x.Quantity))) * totalDiscountAmount;
+*/                        item.TotalPrice -= coupon.Number;
+                    }
+
+                    // Update the order with the total discount amount
+                    // (You might need to adjust this based on your data model)
+                    var order = new Order
+                    {
+                        DiscountAmount = coupon.Number,
+                        CouponCode = couponCode
+                    };
+
+                    // Update the session with the modified cart
+                    Session["Cart"] = cart;
+
+                    // Return any relevant information (e.g., success status, updated model, etc.)
+/*                    return Json(new { success = true, message = "Áp dụng thành công", updatedCart = cart, updatedOrder = order });
+*/                }
+            }
+
+            // Return an error message if the coupon code is invalid or the cart is not available
+            /*            return Json(new { success = false, message = "Mã giảm giá không hợp lệ" });
+            */
+            return RedirectToAction("CheckOut");  
+        }
+
     }
 }

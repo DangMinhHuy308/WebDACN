@@ -9,7 +9,7 @@ namespace WebDACN.Models.EF
 {
     [Table("tb_Coupon")]
 
-    public class Coupon : CommonAbstract
+    public class Coupon 
     {
         public Coupon()
         {

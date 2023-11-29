@@ -11,6 +11,8 @@ using WebDACN.Models;
 
 namespace WebDACN.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Quản trị viên")]
+
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

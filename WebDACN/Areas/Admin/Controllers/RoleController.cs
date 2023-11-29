@@ -9,6 +9,8 @@ using WebDACN.Models;
 
 namespace WebDACN.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Quản trị viên")]
+
     public class RoleController : Controller
     {
         // GET: Admin/Role

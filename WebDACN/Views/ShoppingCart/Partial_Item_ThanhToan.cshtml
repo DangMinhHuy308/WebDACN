@@ -34,10 +34,16 @@
             </ul>
         </div>
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Mã khuyến mãi">
+            @using (Html.BeginForm("ApplyCoupon", "ShoppingCart", FormMethod.Post))
+            {
+            <input type="text" name="CouponCode" />
+            <input type="submit" value="Apply" />
+            @Html.ValidationMessage("CouponCodeError")
+            }
+            @*<input type="text" class="form-control" placeholder="Mã khuyến mãi">
             <div class="input-group-append">
                 <button type="submit" class="btn btn-secondary" style="border-radius: .25rem; margin-top:6px;">Áp dụng</button>
-            </div>
+            </div>*@
         </div>
     }
 </div>

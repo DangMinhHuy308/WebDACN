@@ -8,6 +8,8 @@ using WebDACN.Models.EF;
 
 namespace WebDACN.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Quản trị viên,Nhân viên")]
+    
     public class PostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -30,7 +32,7 @@ namespace WebDACN.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 model.CreatedDate = DateTime.Now;
-                model.MenuId = 11;
+                model.MenuId = 6;
                 model.ModifiedDate = DateTime.Now;
                 model.Alias = WebDACN.Models.Common.Filter.FilterChar(model.Title);
                 db.Posts.Add(model);

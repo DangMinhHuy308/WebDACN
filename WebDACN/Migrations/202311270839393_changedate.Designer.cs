@@ -7,13 +7,13 @@ namespace WebDACN.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class typepaymentvn : IMigrationMetadata
+    public sealed partial class changedate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(typepaymentvn));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changedate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311080431385_typepaymentvn"; }
+            get { return "202311270839393_changedate"; }
         }
         
         string IMigrationMetadata.Source

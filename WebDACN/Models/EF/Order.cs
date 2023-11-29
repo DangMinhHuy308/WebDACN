@@ -32,7 +32,8 @@ namespace WebDACN.Models.EF
         public int Status { get; set; }
         public int? CouponId { get; set; }
         public string CustomerId { get; set; }
-
+        public string CouponCode { get; set; }
+        public decimal DiscountAmount { get; set; }
         public virtual Coupon Coupon { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }

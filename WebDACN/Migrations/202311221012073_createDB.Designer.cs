@@ -7,13 +7,13 @@ namespace WebDACN.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class gianhapsanpham : IMigrationMetadata
+    public sealed partial class createDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(gianhapsanpham));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(createDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202310290944041_gianhapsanpham"; }
+            get { return "202311221012073_createDB"; }
         }
         
         string IMigrationMetadata.Source

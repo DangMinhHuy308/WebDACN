@@ -8,8 +8,11 @@ using WebDACN.Models.EF;
 
 namespace WebDACN.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Quản trị viên,Nhân viên")]
+
     public class BrandController : Controller
     {
+
         // GET: Admin/Brand
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()

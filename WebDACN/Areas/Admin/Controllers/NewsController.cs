@@ -9,6 +9,8 @@ using WebDACN.Models.EF;
 
 namespace WebDACN.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Quản trị viên,Nhân viên")]
+
     public class NewsController : Controller
     {
         // GET: Admin/News
@@ -44,7 +46,7 @@ namespace WebDACN.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 model.CreatedDate = DateTime.Now;
-                model.MenuId = 10;
+                model.MenuId = 5;
                 model.ModifiedDate = DateTime.Now;
                 model.Alias = WebDACN.Models.Common.Filter.FilterChar(model.Title);
                 db.News.Add(model);

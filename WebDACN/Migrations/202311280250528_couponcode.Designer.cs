@@ -7,13 +7,13 @@ namespace WebDACN.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class nameproductadd : IMigrationMetadata
+    public sealed partial class couponcode : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(nameproductadd));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(couponcode));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311200502292_nameproductadd"; }
+            get { return "202311280250528_couponcode"; }
         }
         
         string IMigrationMetadata.Source

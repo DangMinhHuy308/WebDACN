@@ -8,6 +8,8 @@ using WebDACN.Models.EF;
 
 namespace WebDACN.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Quản trị viên,Nhân viên")]
+
     public class MenuController : Controller
     {
         // GET: Admin/Menu

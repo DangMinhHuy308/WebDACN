@@ -20,7 +20,7 @@
         }
         function OnSuccessCO(res) {
             if (res.Success) {
-                if (res.Code == 3 || res.Code == 1) {
+                if (res.Code == 1) {
 
                     location.href = "/ShoppingCart/CheckOutSuccess";
                 } else {
@@ -35,50 +35,54 @@
     <div class="row">
         
         <div class="col-lg-12">
-            @if (!Request.IsAuthenticated){
-            <div class="checkout__form__input">
-                <label>Họ tên khách hàng</label>
-                <input type="text" name="CustomerName" required class="form-control" autocomplete="off" />
-            </div>
-            <div class="checkout__form__input">
-                <label>Số điện thoại</label>
-                <input type="text" name="Phone" class="form-control" autocomplete="off" />
-            </div>
-            <div class="checkout__form__input">
-                <label>Email</label>
-                <input type="text" name="Email" class="form-control" autocomplete="off" />
-            </div>
-            <div class="checkout__form__input">
-                <label>Địa chỉ</label>
-                <input type="text" name="Address" class="form-control" autocomplete="off" />
-            </div>
-            }else{
-            var user = (WebDACN.Models.ApplicationUser)ViewBag.User;
+            @if (!Request.IsAuthenticated)
+            {
+                @Html.HiddenFor(x => x.DiscountAmount)
+                @Html.HiddenFor(x => x.CouponCode)
+                <div class="checkout__form__input">
+                    <label>Họ tên khách hàng</label>
+                    <input type="text" name="CustomerName" required class="form-control" autocomplete="off" />
+                </div>
+                <div class="checkout__form__input">
+                    <label>Số điện thoại</label>
+                    <input type="text" name="Phone" class="form-control" autocomplete="off" />
+                </div>
+                <div class="checkout__form__input">
+                    <label>Email</label>
+                    <input type="text" name="Email" class="form-control" autocomplete="off" />
+                </div>
+                <div class="checkout__form__input">
+                    <label>Địa chỉ</label>
+                    <input type="text" name="Address" class="form-control" autocomplete="off" />
+                </div>
+            }
+            else
+            {
+                var user = (WebDACN.Models.ApplicationUser)ViewBag.User;
 
 
-            <div class="checkout__form__input">
-                <label>Họ tên khách hàng</label>
-                <input type="text" name="CustomerName" value="@user.FullName" required class="form-control" autocomplete="off" />
-            </div>
-            <div class="checkout__form__input">
-                <label>Số điện thoại</label>
-                <input type="text" name="Phone" value="@user.Phone" class="form-control" autocomplete="off" />
-            </div>
-            <div class="checkout__form__input">
-                <label>Email</label>
-                <input type="text" name="Email" @user.Email class="form-control" autocomplete="off" />
-            </div>
-            <div class="checkout__form__input">
-                <label>Địa chỉ</label>
-                <input type="text" name="Address" class="form-control" autocomplete="off" />
-            </div>
+                <div class="checkout__form__input">
+                    <label>Họ tên khách hàng</label>
+                    <input type="text" name="CustomerName" value="@user.FullName" required class="form-control" autocomplete="off" />
+                </div>
+                <div class="checkout__form__input">
+                    <label>Số điện thoại</label>
+                    <input type="text" name="Phone" value="@user.Phone" class="form-control" autocomplete="off" />
+                </div>
+                <div class="checkout__form__input">
+                    <label>Email</label>
+                    <input type="text" name="Email" @user.Email class="form-control" autocomplete="off" />
+                </div>
+                <div class="checkout__form__input">
+                    <label>Địa chỉ</label>
+                    <input type="text" name="Address" class="form-control" autocomplete="off" />
+                </div>
             }
             <div class="checkout__form__input">
                 <label>Hình thức thanh toán</label>
                 <select class="form-control" name="TypePayment" id="drTypePayment">
                     <option value="1" selected>Ship COD</option>
                     <option value="2">Chuyển khoản</option>
-                    <option value="3">Tiền mặt</option>
                 </select>
             </div>
             <div class="form-group" id="load_form_payment" style="display:none;">

@@ -18,7 +18,7 @@ namespace WebDACN.Areas.Admin.Controllers
 
         public ActionResult Index(string Searchtext, int? page)
         {
-            var pageSize = 2;
+            var pageSize = 5;
             if (page == null)
             {
                 page = 1;

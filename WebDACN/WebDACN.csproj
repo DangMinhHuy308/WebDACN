@@ -197,6 +197,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ReviewProductController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
@@ -6180,6 +6181,7 @@
     <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Coupon\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Coupon\CreateCoupon.cshtml" />
+    <Content Include="Areas\Admin\Views\Coupon\EditCoupon.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -6251,6 +6253,8 @@
     <Content Include="Views\ReviewProduct\LichSuDonHang.cshtml" />
     <Content Include="Views\Product\DonHangDaMua.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

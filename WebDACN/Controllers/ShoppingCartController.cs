@@ -220,6 +220,8 @@ namespace WebDACN.Controllers
                     order.CreatedDate = DateTime.Now;
                     order.ModifiedDate = DateTime.Now;
                     order.CreatedBy = req.Phone;
+                   /* order.CouponCode = req.CouponCode;
+                    order.DiscountAmount = req.DiscountAmount;*/
                     if (User.Identity.IsAuthenticated)
                         order.CustomerId = User.Identity.GetUserId();
                     Random rd = new Random();
@@ -250,7 +252,7 @@ namespace WebDACN.Controllers
                     contentCustomer = contentCustomer.Replace("{{DiaChiNhanHang}}", order.Address);
                     contentCustomer = contentCustomer.Replace("{{ThanhTien}}", WebDACN.Common.Common.FormatNumber(thanhtien, 0));
                     contentCustomer = contentCustomer.Replace("{{TongTien}}", WebDACN.Common.Common.FormatNumber(TongTien, 0));
-                    WebDACN.Common.Common.SendMail("ColorShop", "Đơn hàng #" + order.Code, contentCustomer.ToString(), req.Email);
+                    WebDACN.Common.Common.SendMail("AsionShop", "Đơn hàng #" + order.Code, contentCustomer.ToString(), req.Email);
 
                     string contentAdmin = System.IO.File.ReadAllText(Server.MapPath("~/Content/templates/send1.html"));
                     contentAdmin = contentAdmin.Replace("{{MaDon}}", order.Code);
@@ -428,13 +430,11 @@ namespace WebDACN.Controllers
                 if (coupon != null)
                 {
                     // Calculate the total discount amount
-/*                    var totalDiscountAmount = cart.Items.Sum(x => x.Price * x.Quantity) * coupon.Number / 100;
-*/
+
                     // Apply the discount to each item in the cart
                     foreach (var item in cart.Items)
                     {
-/*                        var discountPerItem = (item.Price * item.Quantity / (cart.Items.Sum(x => x.Price * x.Quantity))) * totalDiscountAmount;
-*/                        item.TotalPrice -= coupon.Number;
+                        item.TotalPrice -= coupon.Number;
                     }
 
                     // Update the order with the total discount amount
@@ -444,18 +444,16 @@ namespace WebDACN.Controllers
                         DiscountAmount = coupon.Number,
                         CouponCode = couponCode
                     };
-
+                    
+                    
                     // Update the session with the modified cart
                     Session["Cart"] = cart;
 
-                    // Return any relevant information (e.g., success status, updated model, etc.)
-/*                    return Json(new { success = true, message = "Áp dụng thành công", updatedCart = cart, updatedOrder = order });
-*/                }
+                    
+                }
             }
 
-            // Return an error message if the coupon code is invalid or the cart is not available
-            /*            return Json(new { success = false, message = "Mã giảm giá không hợp lệ" });
-            */
+            
             return RedirectToAction("CheckOut");  
         }
 

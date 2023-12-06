@@ -49,7 +49,6 @@
 
                                         <th>Tên sản phẩm</th>
                                         <th>Giá tiền</th>
-                                        <th>Số lượng</th>
 
                                     </tr>
                                 </thead>
@@ -65,11 +64,12 @@
 
                                             <td>@item.Title</td>
                                             <td>@WebDACN.Common.Common.FormatNumber(item.Price, 0)  </td>
-                                            <td>@item.Quantity</td>
-
+@*                                            <td>@item.Quantity</td>
+*@
                                         </tr>
                                         i++;
                                     }
+                                    
                                 </tbody>
                             </table>
                         }

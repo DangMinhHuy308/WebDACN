@@ -76,9 +76,9 @@
                                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
 
                                 <td>
-                                    <a href="/admin/order/view/@item.Id" class="btn btn-sm btn-success">Xem</a>
-                                    <a href="#" class="btn btn-sm btn-danger btnCapNhat" data-id="@item.Id">Cập nhật</a>
-                                    <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+                                    <a href="/admin/order/view/@item.Id" class="btn btn-sm btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a href="#" class="btn btn-sm btn-success btnCapNhat" data-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                    <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i></a>
 
                                 </td>
                             </tr>
@@ -123,6 +123,9 @@
                         <option value="2">
                             Đã thanh toán
                         </option>
+                        <option value="4">
+                            Hủy đơn hàng
+                        </option>
                     </select>
                 </div>
             </div>
@@ -162,10 +165,10 @@
             });
             $('body').on('click', '.btnDelete', function () {
                 var id = $(this).data("id");
-                var conf = confirm('Bạn có muốn xóa bản ghi này không?');
+                var conf = confirm('Bạn có muốn xóa đơn hàng này không?');
                 if (conf === true) {
                     $.ajax({
-                        url: '/admin/posts/delete',
+                        url: '/admin/order/delete',
                         type: 'POST',
                         data: { id: id },
                         success: function (rs) {

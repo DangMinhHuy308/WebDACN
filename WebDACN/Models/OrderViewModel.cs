@@ -18,6 +18,7 @@ namespace WebDACN.Models
         public string CustomerId { get; set; }
 
         public string CouponCode { get; set; }
+        public decimal DiscountAmount { get; set; }
         public int TypePayment { get; set; }
         public int TypePaymentVN { get; set; }
 

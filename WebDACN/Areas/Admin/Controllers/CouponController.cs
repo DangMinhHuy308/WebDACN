@@ -34,7 +34,7 @@ namespace WebDACN.Areas.Admin.Controllers
                 coupon.EndDate = DateTime.Now.AddDays(7);
                 db.Coupons.Add(coupon);
                 db.SaveChanges();
-                return RedirectToAction("GetAllCoupons");
+                return RedirectToAction("Index");
             }
 
             return View("CreateCoupon", coupon);
@@ -60,25 +60,24 @@ namespace WebDACN.Areas.Admin.Controllers
             {
                 db.Entry(coupon).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("GetAllCoupons");
+                return RedirectToAction("Index");
             }
 
             return View("EditCoupon", coupon);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteCoupon(int id)
+        public ActionResult Delete(int id)
         {
-            var coupon = db.Coupons.Find(id);
-            if (coupon == null)
+            var item = db.Coupons.Find(id);
+            if (item != null)
             {
-                return HttpNotFound();
+                db.Coupons.Remove(item);
+                db.SaveChanges();
+                return Json(new { success = true });
             }
 
-            db.Coupons.Remove(coupon);
-            db.SaveChanges();
-            return RedirectToAction("GetAllCoupons");
+            return Json(new { success = false });
         }
 
         protected override void Dispose(bool disposing)

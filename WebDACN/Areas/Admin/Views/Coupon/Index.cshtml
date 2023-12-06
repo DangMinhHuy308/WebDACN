@@ -43,7 +43,7 @@
             <div class="col-12">
                 <div class="coupon-list">
 
-                    <table class="table table-hover"">
+                    <table class="table table-hover" ">
                         <thead>
                             <tr>
                                 <th>STT</th>
@@ -61,23 +61,33 @@
                             @if (Model != null && Model.Any())
                             {
                                 var i = 1;
-                                foreach (var coupon in Model)
+                                foreach (var item in Model)
                                 {
-                                    <tr>
+                                    <tr id="trow_@item.Id">
                                         <td>@i</td>
-                                        <td>@coupon.Code</td>
-                                        <td>@coupon.Name</td>
-                                        <td>@coupon.Type</td>
-                                        <td>@WebDACN.Common.Common.FormatNumber(coupon.Number, 0)</td>
+                                        <td>@item.Code</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Type</td>
+                                        <td>@WebDACN.Common.Common.FormatNumber(item.Number, 0)</td>
 
-                                        <td>@coupon.StartDate</td>
-                                        <td>@coupon.EndDate</td>
-                                        <td>@coupon.IsActive</td>
+                                        <td>@item.StartDate.ToString("dd/MM/yyyy")</td>
+                                        <td>@item.EndDate.ToString("dd/MM/yyyy")</td>
+                                        <td>@item.IsActive</td>
+                                        <td>
+                                            <a href="/admin/coupon/editcoupon/@item.Id" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+                                            <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i></a>
+                                        </td>
                                     </tr>
 
                                     i++;
 
                                 }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="4">Không có mã giảm giá nào!!!</td>
+                                </tr>
                             }
                         </tbody>
                     </table>
@@ -85,6 +95,33 @@
             </div>
         </div>
     </div>
-    
-</div>
 
+</div>
+@section scripts{
+
+
+    <script>
+        $(document).ready(function () {
+
+
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xóa mã giảm giá này không?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/admin/coupon/delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        }
+                    });
+                }
+            });
+
+
+        });
+    </script>
+}

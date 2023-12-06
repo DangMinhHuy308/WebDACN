@@ -19,6 +19,12 @@ namespace WebDACN
                 namespaces: new[] { "WebDACN.Controllers" }
             );
             routes.MapRoute(
+               name: "DetailNew",
+               url: "{alias}-n{id}",
+               defaults: new { controller = "News", action = "Detail", id = UrlParameter.Optional },
+               namespaces: new[] { "WebDACN.Controllers" }
+           );
+            routes.MapRoute(
             name: "vnpay_return",
             url: "vnpay_return",
             defaults: new { controller = "ShoppingCart", action = "VnpayReturn", alias = UrlParameter.Optional },

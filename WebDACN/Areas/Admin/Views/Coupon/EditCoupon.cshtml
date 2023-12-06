@@ -1,9 +1,10 @@
 ﻿@model WebDACN.Models.EF.Coupon
 
 @{
-    ViewBag.Title = "Thêm mới mã giảm giá";
+    ViewBag.Title = "EditCoupon";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
 @section naviheader{
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -11,13 +12,14 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin/coupon" class="nav-link">Danh mục giảm giá</a>
+            <a href="/admin/product" class="nav-link">Danh sách sản phẩm</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin/coupon/add" class="nav-link">Thêm mới</a>
+            <a href="/admin/coupon/editcoupon/@Model.Id" class="nav-link">Cập nhật</a>
         </li>
     </ul>
 }
+
 
 
 <!-- Content Header (Page header) -->
@@ -25,12 +27,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Thêm mới mã giảm giá</h1>
+                <h1>Cập nhật sản phẩm</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/admin/coupon">Danh sách mã giảm giá</a></li>
-                    <li class="breadcrumb-item active">Thêm mới</li>
+                    <li class="breadcrumb-item"><a href="/admin/coupon">Danh sách mả giảm giá</a></li>
+                    <li class="breadcrumb-item active">Cập nhật</li>
                 </ol>
             </div>
         </div>
@@ -38,16 +40,16 @@
 </section>
 
 
-
 <section class="content">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Thông tin thêm mới mã giảm giá</h3>
+            <h3 class="card-title">Thông tin Cập nhập mã giảm giá</h3>
         </div>
-        @using (Html.BeginForm("CreateCoupon", "Coupon", FormMethod.Post, new { }))
+        @using (Html.BeginForm("EditCoupon", "Coupon", FormMethod.Post, new { }))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true)
+            @Html.HiddenFor(x => x.Id)
             @Html.HiddenFor(x => x.StartDate)
             @Html.HiddenFor(x => x.EndDate)
             <div class="form-group">
@@ -81,7 +83,8 @@
                 <label for="Is_active">Trạng thái</label>
                 @Html.DropDownListFor(x => x.IsActive, new SelectList(new[] { new { Value = "true", Text = "Kích hoạt" }, new { Value = "false", Text = "Không kích hoạt" } }, "Value", "Text"), new { @class = "form-control", id = "Is_active" })
             </div>
-            <button type="submit" class="btn btn-primary">Tạo</button>
+            <button type="submit" class="btn btn-primary">Cập nhập</button>
+            <a href="/admin/coupon" class="btn btn-danger">Quay lại</a>
         }
     </div>
 </section>

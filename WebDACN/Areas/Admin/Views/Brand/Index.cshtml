@@ -172,7 +172,7 @@
             });
             $('body').on('click', '.btnDelete', function () {
                 var id = $(this).data("id");
-                var conf = confirm('Bạn có muốn xóa bản ghi này không?');
+                var conf = confirm('Bạn có muốn xóa thương hiệu này không?');
                 if (conf === true) {
                     $.ajax({
                         url: '/admin/brand/delete',

@@ -55,7 +55,7 @@ namespace WebDACN.Areas.Admin.Controllers
             }
             return View(model);
         }
-        public ActionResult Edit    (int id)
+        public ActionResult Edit(int id)
         {
             var item = db.News.Find(id);
             return View(item);

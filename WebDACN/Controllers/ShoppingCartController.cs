@@ -418,7 +418,7 @@ namespace WebDACN.Controllers
         [HttpPost]
         public ActionResult ApplyCoupon(string couponCode)
         {
-            // Assume ShoppingCart is the name of your shopping cart model
+            
             var cart = (ShoppingCart)Session["Cart"];
 
             if (cart != null && !string.IsNullOrEmpty(couponCode))
@@ -438,7 +438,7 @@ namespace WebDACN.Controllers
                     }
 
                     // Update the order with the total discount amount
-                    // (You might need to adjust this based on your data model)
+                    
                     var order = new Order
                     {
                         DiscountAmount = coupon.Number,

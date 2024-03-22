@@ -2,50 +2,61 @@
 @using PagedList.Mvc;
 @using PagedList;
 @{
-    ViewBag.Title = "Tin tức";
+    ViewBag.Title = "Tin tức thời trang";
 }
-<!-- Breadcrumb Begin -->
-<div class="breadcrumb-option">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb__links">
-                    <a href="/"><i class="fa fa-home"></i> Trang chủ</a>
-                    <span>Tin tức thời trang</span>
-                </div>
-            </div>
+
+<!-- Slider -->
+<style>
+    
+
+    .row-item-new {
+        margin-bottom: 20px;
+    }
+
+    .title-news {
+        font-size: 24px;
+        border-bottom: 1px solid;
+        padding: 15px 0;
+        margin-bottom: 25px;
+    }
+
+    .img-box img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>
+<div class="container news_section_container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="title-news">Tin tức</h1>
         </div>
     </div>
-</div>
-<!-- Breadcrumb End -->
-<!-- Blog Section Begin -->
-<section class="blog spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-9 col-md-4 col-sm-6">
-                @if (Model != null && Model.Any())
-                {
-                    foreach (var item in Model)
-                    {
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="blog__item">
-                                <div class="blog__item__pic set-bg" data-setbg="@item.Image"></div>
-                                <div class="blog__item__text">
-                                    <h6><a href="/@item.Alias-n@(item.Id)" title="@item.Title">@item.Title</a></h6>
-                                    <ul>
-                                        <li>@item.CreatedDate.ToString("dd-MM-yyyy")</li>
-                                    </ul>
-                                </div>
-                            </div>
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="row row-item-new">
+                <div class="col-md-3">
+                    <div class="img-box">
+                        <a href="" title="@item.Title"><img src="@item.Image" alt="@item.Title" /></a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="content-box">
+                        <h3><a href="/@item.Alias-n@(item.Id)" title="@item.Title">@item.Title</a></h3>
+                        <div class="description-box">
+                            @item.Description
                         </div>
-                    }
-                }
+                    </div>
+                </div>
             </div>
-
-            <div class="col-lg-12 text-center">
+        }
+        <div>
+            <div class="col-6"></div>
+            <div class="col-6" style="text-align:right;">
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
             </div>
-
         </div>
-</section>
-<!-- Blog Section End -->
+    }
+
+</div>

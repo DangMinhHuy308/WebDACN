@@ -48,8 +48,6 @@
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true)
-            @Html.HiddenFor(x => x.StartDate)
-            @Html.HiddenFor(x => x.EndDate)
             <div class="form-group">
                 <label for="Code">Mã</label>
                 @Html.TextBoxFor(x => x.Code, new { @class = "form-control", @placeholder = "Mã" })

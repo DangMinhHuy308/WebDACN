@@ -58,11 +58,11 @@ namespace WebDACN
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "318785755711-f0dacmlo0hcp5igdbs94aj4d5rivt4oa.apps.googleusercontent.com",
+               ClientSecret = "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"
+            });
         }
     }
 }

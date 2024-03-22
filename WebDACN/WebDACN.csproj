@@ -6250,7 +6250,6 @@
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\ReviewProduct\Show_Review.cshtml" />
     <Content Include="Views\ReviewProduct\Load_Review.cshtml" />
-    <Content Include="Views\ReviewProduct\LichSuDonHang.cshtml" />
     <Content Include="Views\Product\DonHangDaMua.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
